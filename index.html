@@ -2,65 +2,127 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Hiển thị bảng khi bấm nút</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Điểm Tổng Kết Học Tập</title>
     <style>
-        /* CSS để ẩn bảng đi lúc đầu */
-        #bangDiem {
-            display: none;
-            margin-top: 10px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
         }
-        
-        /* Làm đẹp nút bấm và bảng */
-        .btn-hien-bang {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+
+        body {
+            background-color: #f0f7ff; /* Nền xanh xám nhạt giống mẫu */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 40px;
         }
-        .btn-hien-bang:hover {
-            background-color: #0056b3;
+
+        /* Tiêu đề bảng */
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3a5f;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        table, th, td {
-            border: 1px solid black;
-            padding: 8px;
+
+        /* Khung bảng */
+        .table-container {
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Đổ bóng xung quanh bảng */
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 500px;
+        }
+
+        /* Hàng tiêu đề màu vàng */
+        th {
+            background-color: #ffd700;
+            color: #000000;
+            font-weight: bold;
+            padding: 12px 20px;
+            text-align: center;
+            border: 1.5px solid #0088ff;
+            font-size: 15px;
+        }
+
+        /* Các ô dữ liệu */
+        td {
+            padding: 12px 20px;
+            border: 1.5px solid #0088ff;
+            color: #333333;
+            font-size: 15px;
+            background-color: #ffffff;
+        }
+
+        /* Căn trái cho cột Họ và Tên, căn giữa cho điểm số */
+        td:first-child {
+            text-align: left;
+            padding-left: 25px;
+        }
+
+        td:not(:first-child) {
             text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- Nhãn dán (Nút bấm) -->
-    <button class="btn-hien-bang" onclick="toggleTable()">Bấm vào để hiện bảng</button>
-
-    <!-- Khu vực chứa bảng của bạn (đã được sửa lại cấu trúc HTML cho chuẩn) -->
-    <div id="bangDiem">
-        <table style="border-collapse: collapse;">
-          <tr>
-            <th rowspan="2" style="border: 2px solid blue;">Họ tên</th>
-            <th colspan="3" style="border: 2px solid blue;">Điểm thi</th>
-          </tr>
-          <tr>
-            <td style="border: 2px solid red;">Toán</td>
-            <td style="border: 2px solid yellow;">Vật lí</td>
-            <td style="border: 2px solid green;">Hóa học</td>
-          </tr>
-        </table>
+    <!-- Tiêu đề -->
+    <div class="title">
+        📊 Bảng Điểm Tổng Kết Học Tập
     </div>
 
-    <!-- JavaScript để điều khiển ẩn/hiện bảng -->
-    <script>
-        function toggleTable() {
-            var x = document.getElementById("bangDiem");
-            if (x.style.display === "none" || x.style.display === "") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    </script>
+    <!-- Bảng dữ liệu -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Họ và Tên</th>
+                    <th>Toán</th>
+                    <th>Vật Lý</th>
+                    <th>Hoá Học</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vũ Mai Phương</td>
+                    <td>8.5</td>
+                    <td>9.0</td>
+                    <td>8.8</td>
+                </tr>
+                <tr>
+                    <td>Vũ Giang Linh</td>
+                    <td>9.2</td>
+                    <td>8.5</td>
+                    <td>9.0</td>
+                </tr>
+                <tr>
+                    <td>Nguyễn Thuỳ Chi</td>
+                    <td>7.8</td>
+                    <td>8.2</td>
+                    <td>8.5</td>
+                </tr>
+                <tr>
+                    <td>Vũ Thị Ngọc Anh</td>
+                    <td>8.0</td>
+                    <td>9.2</td>
+                    <td>9.0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
