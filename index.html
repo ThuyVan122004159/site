@@ -1,11 +1,66 @@
-table style="border-collapse: collapse;">
-  <tr>
-    <th rowspan="2" style="border: 2px solid blue;">Họ tên</th>
-    <th rowspan="3" style="border: 2px solid blue;">Điểm thi</th>
-  </tr>
-  <tr>
-    <td style="border: 2px solid red;">Toán</td>
-    <td style="border: 2px solid yellow;">Vật lí</td>
-    <td style="border: 2px solid green;">Hóa học</td>
-  </tr>
-</table>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị bảng khi bấm nút</title>
+    <style>
+        /* CSS để ẩn bảng đi lúc đầu */
+        #bangDiem {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        /* Làm đẹp nút bấm và bảng */
+        .btn-hien-bang {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-hien-bang:hover {
+            background-color: #0056b3;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nhãn dán (Nút bấm) -->
+    <button class="btn-hien-bang" onclick="toggleTable()">Bấm vào để hiện bảng</button>
+
+    <!-- Khu vực chứa bảng của bạn (đã được sửa lại cấu trúc HTML cho chuẩn) -->
+    <div id="bangDiem">
+        <table style="border-collapse: collapse;">
+          <tr>
+            <th rowspan="2" style="border: 2px solid blue;">Họ tên</th>
+            <th colspan="3" style="border: 2px solid blue;">Điểm thi</th>
+          </tr>
+          <tr>
+            <td style="border: 2px solid red;">Toán</td>
+            <td style="border: 2px solid yellow;">Vật lí</td>
+            <td style="border: 2px solid green;">Hóa học</td>
+          </tr>
+        </table>
+    </div>
+
+    <!-- JavaScript để điều khiển ẩn/hiện bảng -->
+    <script>
+        function toggleTable() {
+            var x = document.getElementById("bangDiem");
+            if (x.style.display === "none" || x.style.display === "") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
